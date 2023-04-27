@@ -14,7 +14,6 @@ public class UserServiceImpl implements UserService {
     private void createQuery(String query) {
         try (Statement statement = Util.getConnection().createStatement()) {
             statement.executeUpdate(query);
-            statement.executeQuery("SELECT * FROM dbtest.Users");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -35,6 +34,7 @@ public class UserServiceImpl implements UserService {
     public void saveUser(String name, String lastName, byte age) {
         createQuery("INSERT INTO dbtest.Users (name, lastname, age) VALUES " +
                 "('" + name + "', '" + lastName + "', " + age + ");");
+        System.out.println("User с именем - " + name + " добавлен в базу данных.");
     }
 
     public void removeUserById(long id) {
