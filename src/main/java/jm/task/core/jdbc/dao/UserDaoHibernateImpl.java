@@ -50,17 +50,13 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void removeUserById(long id) {
-        createQuery(session -> {
-            session.remove(session.find(User.class, id));
-        });
+        createQuery(session -> session.remove(session.find(User.class, id)));
     }
 
     @Override
     public List<User> getAllUsers() {
         AtomicReference<List<User>> list = new AtomicReference<>(new ArrayList<>());
-        createQuery(session -> {
-            list.set(session.createCriteria(User.class).list());
-        });
+        createQuery(session -> list.set(session.createCriteria(User.class).list()));
         return list.get();
     }
 
