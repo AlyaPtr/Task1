@@ -30,7 +30,7 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void createUsersTable() {
-        createQuery(session -> session.createSQLQuery("CREATE TABLE dbtest.Users (\n" +
+        createQuery(session -> session.createSQLQuery("CREATE TABLE Users (\n" +
                 "`id` INT NOT NULL AUTO_INCREMENT,\n" +
                 "`name` VARCHAR(45) NOT NULL,\n" +
                 "`lastname` VARCHAR(45) NOT NULL,\n" +
@@ -40,7 +40,7 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void dropUsersTable() {
-        createQuery(session -> session.createSQLQuery("DROP TABLE dbtest.Users").executeUpdate());
+        createQuery(session -> session.createSQLQuery("DROP TABLE Users").executeUpdate());
     }
 
     @Override
@@ -62,6 +62,6 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void cleanUsersTable() {
-        createQuery(session -> session.createSQLQuery("truncate table dbtest.Users").executeUpdate());
+        createQuery(session -> session.createSQLQuery("truncate table Users").executeUpdate());
     }
 }
