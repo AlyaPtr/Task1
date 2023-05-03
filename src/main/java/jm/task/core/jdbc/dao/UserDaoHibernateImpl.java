@@ -50,7 +50,7 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void removeUserById(long id) {
-        createQuery(session -> session.remove(session.find(User.class, id)));
+        createQuery(session -> session.createSQLQuery("DELETE FROM Users WHERE id=" + id + ";").executeUpdate());
     }
 
     @Override
