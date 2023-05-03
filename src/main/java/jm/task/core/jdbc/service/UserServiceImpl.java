@@ -9,12 +9,7 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService {
 
-    //---------------------------------------------------------------
-    // ---!!!--- Swap the commented code to change the mode ---!!!---
-    //---------------------------------------------------------------
-
-    //private final UserDaoHibernateImpl userDao = new UserDaoHibernateImpl();
-    private final UserDao userDao = new UserDaoJDBCImpl();
+    private final UserDaoHibernateImpl userDao = new UserDaoHibernateImpl();
 
     public void createUsersTable() {
         userDao.createUsersTable();
