@@ -10,9 +10,8 @@ import javax.transaction.UserTransaction;
 import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) throws SQLException {
-
-        UserService userService = new UserServiceImpl();
+    private static final UserService userService = new UserServiceImpl();
+    public static void main(String[] args) {
 
         userService.createUsersTable();
 
